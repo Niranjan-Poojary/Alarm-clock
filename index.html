@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock</title>
+    <!--Font Awesom icon-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="wrapper">
+    
+          <div class="timer-display">00:00:00
+         <h3>set alrm</h3>
+          </div>
+        <div class="container">
+            <label class="alarm-heading"><h3>Set Alarm(24-Hour Clock)</h3><label><br>
+            <div class="inputs">
+                <input type="number" id="hourInput" placeholder="00"  min="0"  max="23"/>
+                <input type= "number"id="minuteInput" placeholder="00" min="0" max="59"/>
+                <input type="number" id="secondInput"placeholder="00" min="0" max="59"/>
+            </div>  
+            <button id="set"><i class="fa-solid fa-plus"></i></i></button>
+            <div>
+                <h3 class="alarm-heading" style="margin-top: -20px;">Upcoming Alarms</h3>
+            </div>
+            <div class="activeAlarms"></div>
+        </div>
+    </div>
+
+    <!--Script-->
+
+    <script src="script.js"></script>
+    
+</body> 
+</html>
