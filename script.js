@@ -163,6 +163,7 @@ let initialHour=0,
             if(exists){
                 alarmsArray[index].isActive=false;
                 alarmSound.pause();
+                alert(`Alarm clear`)
             }
          };
 
