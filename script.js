@@ -46,11 +46,12 @@ let initialHour=0,
         ];
         
     
-         //Display time
+         //Display  current time 
 
         timerRef.innerHTML = `${hours}:${minutes}:${seconds}`;
     
-        //Alarm
+        //Set the alarm here
+        //Play the alarm audio at right time
         alarmsArray.forEach((alarm,index)=> {
             if(alarm.isActive) {
                 if(`${alarm.alarmHour}:${alarm.alarmMinute}:${alarm.alarmSecond}`===
@@ -58,13 +59,17 @@ let initialHour=0,
                 ){
                    alarmSound.play();
                    alarmSound.loop=true;
-                   alert(`Hey! its is ${alarm.isActive}`) 
+                   alert(`Hey! its is ${timerRef.innerHTML}`) 
                
                 }
+               
             }
+           
         });
+       
 
     }
+  
      
      const inputCheck=(inputValue) => {
         inputValue=parseInt(inputValue);
@@ -96,6 +101,7 @@ let initialHour=0,
         alarmDiv.innerHTML = `<span>${alarmHour}:${alarmMinute}:${alarmSecond}</span>`;
 
         //checkbox
+        //checkbox is used to start and stop the alarm
         let checkbox=document.createElement("input");
         checkbox.setAttribute("type","checkbox");
         checkbox.addEventListener("click",(e)=>{
@@ -107,6 +113,7 @@ let initialHour=0,
         });
          alarmDiv.appendChild(checkbox);
          //Delete button
+         //Setting the delete button to delete the alarm list
          let deleteButton = document.createElement("button");
          deleteButton.innerHTML=`<i class="fa-solid fa-trash-can"></i>`;
          deleteButton.classList.add("deleteButton");
@@ -117,6 +124,7 @@ let initialHour=0,
      };
 
      //set Alarm
+     //event to set the new alarm
      setAlarm.addEventListener("click",()=>{
         alarmIndex +=1;
 
@@ -136,6 +144,7 @@ let initialHour=0,
      });
 
      //start alarm
+     //start the alarm from alarm list when click on the checkbox
      const startAlarm=(e)=>{
         let searchId=e.target.parentElement.getAttribute("data-id");
         let [exists,obj,index] = searchObject("id",searchId);
@@ -146,7 +155,7 @@ let initialHour=0,
      };
     
         //stop alarm
-
+        //stop the alarm from alarm list when click on the checkbox
         const stopAlarm=(e)=>{
             let searchId=e.target.parentElement.getAttribute("data-id");
             let [exists,obj,index] = searchObject("id",searchId);
@@ -158,7 +167,7 @@ let initialHour=0,
          };
 
      //delete Alram
-
+     //delete alarm from alarm list and web page when delete button clicked
      const deleteAlarm=(e)=>{
         let searchId=e.target.parentElement.parentElement.getAttribute("data-id");
         let [exists,obj,index] = searchObject("id",searchId);
